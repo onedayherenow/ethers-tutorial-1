@@ -122,6 +122,25 @@ const getCurrentPet = async () => {
 };
 
 
+/* 7. Function to show the pet form on click of button */
+showPetFormBtn.addEventListener("click", () => {
+    petSection.style.display = "none";
+    petFormSection.style.display = "block";
+    setPetButton.value = "Submit";
+});
+
+/* 8. Function to refresh pet details */
+refreshBtn.addEventListener("click", (e) => {
+    e.target.innerText = "Refreshing...";
+    getCurrentPet().then(() => {
+        e.target.innerText = "Refreshed";
+        setTimeout(() => {
+            e.target.innerText = "Refresh";
+        }, 2000)
+    });
+});
+
+
 /* *** IN THE ABOVE CODE:
 1. WE'RE MAKING THE PetContract VARIABLE GLOBAL BECAUSE WE'LL REUSE IT IN OTHER FUNCTIONS
 
